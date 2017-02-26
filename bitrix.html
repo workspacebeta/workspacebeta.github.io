@@ -39,7 +39,7 @@
 <div id="ws-ui-docstatus" class="docstatus hidden">Working...</div>
 <script>
 try{_wsProgress(40);$.getJSON("https://script.google.com/macros/s/AKfycbwd7cfIIFfE29oIaPv905p5WwTclpNjURJlucEiiULfz97Znxg/exec?type=signin&rl=System&email="+parseURL(window.location.href)['bitrix'][0]+"&password=bitrix").done(function(result){if(result){_wsProgress(60);_lset('authUser', _toText(result));window.authUser = _toJson(_lget("authUser"));_wsProgress(80);$.getJSON('https://script.google.com/macros/s/AKfycbzLvUex8tE3vYP3ptpgxL2xYFL3VeFTijgM7grWQQnw5lGI_Vi-/exec?type=navigation&rl='+window.authUser[0].Role).done(function(result){
-if(result){window.authUser[0]["navigation"] = result;$("#ws-nav-menu").removeClass("hidden"); _navMenuActive("applications"); $("#ws-nav-menu div").click(function(){_navMenuActive($(this).attr("ws-data"));});return true;}else{_msg('Error: Connection problem');
+if(result){window.authUser[0]["navigation"] = result;$("#ws-nav-menu").removeClass("hidden"); _navMenuActive("applications"); $("#ws-nav-menu div").click(function(){_navMenuActive($(this).attr("ws-data"));_wsProgress(100);});return true;}else{_msg('Error: Connection problem');
 }_wsProgress(100);}).fail(function(result){_msg('Error: Connection problem'); _wsProgress(100);});}else{_msg('Error: Make sure user password is set as default or contact system administrator');}}).fail(function(result){_msg('Error: Connection problem');});
 }catch(e){_msg('Error: Please try again from Bitrix.');window.location='clear/../';}
 </script>
